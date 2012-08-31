@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="com.twist.android.plugins.calendar"
+  version="0.1">
+  <name>Calendar</name>
+  <asset src="www/calendar.js" target="calendar.js" />
+  <engines>
+    <engine name="cordova" version="2.0.0" />
+  </engines>
+  <!-- android -->
+  <platform name="android">
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <uses-permission android:name="android.permission.READ_CALENDAR" />
+    </config-file>
+    <config-file target="res/xml/config.xml" parent="/cordova/plugins">
+      <plugin name="Calendar" value="com.twist.android.plugins.calendar.Calendar" />
+    </config-file>
+    <source-file src="src/android/AbstractCalendarAccessor.java"
+      target-dir="src/com/twist/android/plugins/calendar" />
+    <source-file src="src/android/Calendar.java"
+      target-dir="src/com/twist/android/plugins/calendar" />
+    <source-file src="src/android/LegacyCalendarAccessor.java"
+      target-dir="src/com/twist/android/plugins/calendar" />
+  </platform>
+</plugin>
